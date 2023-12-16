@@ -1,0 +1,15 @@
+
+.headerDiv{
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px; 
+    background-color: rgb(28 64 72);
+    width: 100%;
+}
+h3{
+    color: white;
+    font-size: large;
+    cursor: pointer;
+}
