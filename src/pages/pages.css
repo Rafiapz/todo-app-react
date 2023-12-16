@@ -1,0 +1,16 @@
+.completedDiv{
+
+}
+h1{
+    color: white;
+    font-size: x-large;
+    margin-left: 40%;
+    margin-top: 3%;
+}
+.olofCompleted{
+    color: white;
+    margin-left: 45%;
+    margin-top: 5%;
+    list-style-type: decimal;
+    font-size: x-large;
+}

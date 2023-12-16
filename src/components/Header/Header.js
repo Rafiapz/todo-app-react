@@ -1,12 +1,14 @@
-import React from 'react'
+import React,{} from 'react'
 import './header.css'
+import { Link } from 'react-router-dom'
 
 function Header() {
   return (
     <div className='headerDiv' >
-        <h3>Home</h3>
-        <h3>Completed</h3>
-        <h3>Not Completed</h3>
+        <Link to='/' ><h3>Home</h3></Link>
+        <Link to='/completed' ><h3>Completed</h3></Link>
+        <Link to='/incomplete' ><h3>Incomplete</h3></Link>
+       
        
     </div>
   )

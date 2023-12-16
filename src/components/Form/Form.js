@@ -6,7 +6,7 @@ function Form(props) {
 
   return (
     <form action="">
-    <input type="text" value={item} onChange={itemsSetting} placeholder="Enter taks here...." />
+    <input type="text"  value={item} onChange={itemsSetting} placeholder="Enter taks here...." />
     <button className="btnn" onClick={addItem} type="submit" >
       Add
     </button>

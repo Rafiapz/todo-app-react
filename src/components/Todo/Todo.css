@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color: #16203e;
+    background-color: #151a29;
 }
 
 .todoContainer {
@@ -42,11 +42,11 @@ h2 {
 }
 
 
-ul li{
+.listMain{
     background-color: white;
     padding: 15px;
 }
-li{
+.listMain{
     
    display: flex;
     gap: 330px;
