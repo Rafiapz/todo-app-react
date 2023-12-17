@@ -8,7 +8,7 @@ body {
     width: 500px;
     position: absolute;
     left: 50%;
-    top: 30%;
+    top: 20%;
     transform: translate(-50%);
     text-align: center;
 }
@@ -32,6 +32,25 @@ h2 {
     padding: 10px;
     box-sizing: border-box;
 }
+.noError{
+
+    color: red;
+    margin-left: 7%;
+    margin-top: 2%;
+    height: 30px;
+    border-radius: 5px;
+    width: 300px;
+    display: none;
+}
+.error{
+    display: block;
+    color: red;
+    margin-left: 7%;
+    margin-top: 2%;
+    height: 30px;
+    border-radius: 5px;
+    width: 300px;
+}
 .btnn{
     background-color:rgb(28 64 72);
     border-radius: 5px;
@@ -45,12 +64,14 @@ h2 {
 .listMain{
     background-color: white;
     padding: 15px;
-}
-.listMain{
-    
-   display: flex;
+    display: flex;
     gap: 330px;
+    
 }
+.lmchecked{
+    opacity: 30%;
+}
+
 .chbxdiv{
     display: flex;
 }

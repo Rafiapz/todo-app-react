@@ -4,16 +4,17 @@ import Form from "../Form/Form";
 import List from "../List/List";
 
 function Todo(props) {
-  const { toDos, item, itemsSetting, addItem, delteOneItem,completed,setCompleted,checkedfn } = props.props;
+  const { valError} = props.props;
 
   return (
     <div>
       <div className="todoContainer">
         <div className="input-section">
-          <Form props={{ toDos, item, itemsSetting, addItem }} />
+          <Form props={props.props} />
+          <p className={valError?'error':'noError'} >{valError}</p>
         </div>
         <ul>
-          <List props={{item, toDos, delteOneItem,completed,setCompleted,checkedfn }} />
+          <List props={props.props} />
         </ul>
       </div>
     </div>

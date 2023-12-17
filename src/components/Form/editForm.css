@@ -1,0 +1,26 @@
+
+.editInput{
+    height: 40px;
+    width: 320px;
+    border-radius: 5px;
+}
+.editForm{
+    padding: 20px
+}
+.editnoError{
+
+    color: red;
+    margin-left: 7%;
+    height: 30px;
+    border-radius: 5px;
+    width: 300px;
+    display: none;
+}
+.editerror{
+    display: block;
+    color: red;
+    margin-left: 7%;
+    height: 30px;
+    border-radius: 5px;
+    width: 300px;
+}

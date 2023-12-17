@@ -9,35 +9,54 @@ import Incomplete from "./pages/Incomplete";
 function App() {
   const [toDos, setTodo] = useState([]);
   const [item, setItem] = useState("");
+  const [valError, setError] = useState(false);
+  const [valEditError, setValeditError] = useState(false);
 
   const itemsSetting = (event) => {
     setItem(event.target.value);
   };
   const addItem = (event) => {
     event.preventDefault();
-    setTodo([...toDos, { item, status: false }]);
-    setItem("");
-  };
 
+    if (item.trim() === "") {
+      setError("This field is required");
+      return;
+    } else {
+      setError(false);
+      setTodo([...toDos, { item, status: false, isEditing: false }]);
+      setItem("");
+    }
+  };
+  const editTodo = (index) => {
+    setTodo(
+      toDos.map((obj, i) => {
+        if (i === index) {
+          obj.isEditing = !obj.isEditing;
+        }
+        return obj;
+      })
+    );
+  };
   const delteOneItem = (dind) => {
-    const finalList = toDos.filter((item, ind) => ind !== dind);
-    setTodo(finalList);
+    setTodo(toDos.filter((item, ind) => ind !== dind));
   };
   const checkedfn = (item, status) => {
-    const finalList = toDos.map((todo) =>
-      todo === item ? { ...todo, status } : todo
-    );
-
-    setTodo(finalList);
+    setTodo(toDos.map((todo) => (todo === item ? { ...todo, status } : todo)));
   };
 
   const props = {
     toDos,
     item,
+    valError,
+    valEditError,
+    setValeditError,
     itemsSetting,
     addItem,
     delteOneItem,
     checkedfn,
+    editTodo,
+    setItem,
+    setTodo,
   };
 
   return (
