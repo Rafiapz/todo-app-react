@@ -4,27 +4,47 @@ import "./editForm.css";
 function EditForm(props) {
   const { index, value } = props;
   const [editItem, setEditItem] = useState(value);
-  const { setTodo, toDos, valEditError, setValeditError } = props.props;
+  const { setTodo, toDos } = props.props;
   const editTodoItem = (event) => {
     setEditItem(event.target.value);
   };
 
   const updateTodo = (event) => {
     event.preventDefault();
-    if (editItem.trim() == "") {
-      setValeditError("Please enter a valid text");
+    if (editItem.trim() === "") {
+      setTodo(
+        toDos.map((obj, i) => {
+          if (i === index) {
+            obj.valEditError = "Please enter a valid task";
+          }
+          return obj;
+        })
+      );
       return;
-    }
-    setValeditError(false);
-    setTodo(
-      toDos.map((obj, i) => {
-        if (i === index) {
-          obj.item = editItem;
-          obj.isEditing = false;
+    } else {
+      let duplicate = false;
+      toDos.map((obj,i) => {
+        if (obj.item === editItem && i!==index) {
+          duplicate = true;
+          alert("This task already added");
         }
-        return obj;
-      })
-    );
+        return obj
+      });
+
+      if (duplicate) {
+        return;
+      }
+      setTodo(
+        toDos.map((obj, i) => {
+          if (i === index) {
+            obj.item = editItem;
+            obj.isEditing = false;
+            obj.valEditError = false;
+          }
+          return obj;
+        })
+      );
+    }
   };
 
   return (
@@ -41,8 +61,8 @@ function EditForm(props) {
           Update
         </button>
       </form>
-      <p className={valEditError ? "editerror" : "editnoError"}>
-        {valEditError}
+      <p className={toDos[index].valEditError ? "editerror" : "editnoError"}>
+        {toDos[index].valEditError}
       </p>
     </>
   );

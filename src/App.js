@@ -10,8 +10,7 @@ function App() {
   const [toDos, setTodo] = useState([]);
   const [item, setItem] = useState("");
   const [valError, setError] = useState(false);
-  const [valEditError, setValeditError] = useState(false);
-
+ 
   const itemsSetting = (event) => {
     setItem(event.target.value);
   };
@@ -21,10 +20,23 @@ function App() {
     if (item.trim() === "") {
       setError("This field is required");
       return;
-    } else {
+    }
+     else {
+      let duplicate=false
+      toDos.forEach((obj)=>{
+
+        if(obj.item===item){
+          setError('This task already added')
+          duplicate=true
+          return
+        }
+      })
+      if(!duplicate){
       setError(false);
-      setTodo([...toDos, { item, status: false, isEditing: false }]);
+      setTodo([...toDos, { item, status: false, isEditing: false,valEditError:false }]);
       setItem("");
+      }
+
     }
   };
   const editTodo = (index) => {
@@ -48,8 +60,6 @@ function App() {
     toDos,
     item,
     valError,
-    valEditError,
-    setValeditError,
     itemsSetting,
     addItem,
     delteOneItem,
