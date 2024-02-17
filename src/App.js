@@ -10,7 +10,7 @@ function App() {
   const [toDos, setTodo] = useState([]);
   const [item, setItem] = useState("");
   const [valError, setError] = useState(false);
- 
+
   const itemsSetting = (event) => {
     setItem(event.target.value);
   };
@@ -21,20 +21,20 @@ function App() {
       setError("This field is required");
       return;
     }
-     else {
-      let duplicate=false
-      toDos.forEach((obj)=>{
+    else {
+      let duplicate = false
+      toDos.forEach((obj) => {
 
-        if(obj.item===item){
+        if (obj.item === item) {
           setError('This task already added')
-          duplicate=true
+          duplicate = true
           return
         }
       })
-      if(!duplicate){
-      setError(false);
-      setTodo([...toDos, { item, status: false, isEditing: false,valEditError:false }]);
-      setItem("");
+      if (!duplicate) {
+        setError(false);
+        setTodo([...toDos, { item, status: false, isEditing: false, valEditError: false }]);
+        setItem("");
       }
 
     }
@@ -75,6 +75,10 @@ function App() {
     <div>
       <Router>
         <Header />
+        <h1 style={{ marginLeft: '45%', fontSize: 'xx-large' }}>
+          <b style={{ fontSize: 'xx-large' }}>Todo app</b>
+        </h1>
+
         <Routes>
           <Route exact path="/" element={<Todo props={props} />} />
           <Route path="/completed" element={<Completed props={props} />} />
